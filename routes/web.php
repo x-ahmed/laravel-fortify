@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('profile/edit', 'profile.edit')->middleware('auth');
+Route::view('home', 'home')->middleware('auth');
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::view('home', 'home')->middleware('auth');
