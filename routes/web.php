@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('password/edit', 'password.edit')->middleware('auth');
 Route::view('profile/edit', 'profile.edit')->middleware('auth');
 Route::view('home', 'home')->middleware('auth');
 
