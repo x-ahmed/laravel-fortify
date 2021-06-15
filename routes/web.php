@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('password/edit', 'password.edit')->middleware('auth');
-Route::view('profile/edit', 'profile.edit')->middleware('auth');
-Route::view('home', 'home')->middleware('auth');
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::view('password/edit', 'password.edit');
+    Route::view('profile/edit', 'profile.edit');
+    Route::view('home', 'home');
+});
 
 Route::get('/', function () {
     return view('welcome');
